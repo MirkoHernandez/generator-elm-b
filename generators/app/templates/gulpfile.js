@@ -4,6 +4,8 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var elm  = require('gulp-elm');
+var taskListing = require('gulp-task-listing');
+
 // var less = require('gulp-less');
 
 // Required by gulp
@@ -93,6 +95,8 @@ function watch () {
     gulp.watch(paths.elmFiles.src,watchOptions, elmCompile);
     gulp.watch(paths.dist.src,watchOptions).on( 'change', browserSync.reload );
 }
+
+gulp.task(‘default’,taskListing);
 
 
 exports.styles = styles;
