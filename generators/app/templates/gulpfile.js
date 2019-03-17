@@ -96,7 +96,7 @@ function watch () {
     gulp.watch(paths.dist.src,watchOptions).on( 'change', browserSync.reload );
 }
 
-gulp.task(‘default’,taskListing);
+gulp.task('default',taskListing);
 
 
 exports.styles = styles;
