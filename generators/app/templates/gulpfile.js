@@ -26,7 +26,7 @@ var dependencies = Object.keys(packageJSON && packageJSON.dependencies || {});
 var del = require('del');
 var browserSync = require('browser-sync').create()
 
-// Watch Options (usePolling is required if gulp is running inside VM, and changes to files are executed from the host).
+// Watch Options (usePolling is required if gulp is running inside a VM, and changes to files are performed from the host).
 var watchOptions = {
     usePolling: true,
 }
@@ -90,7 +90,7 @@ function watch () {
 	    open: false
     });
     gulp.watch(paths.index.src,watchOptions, copyIndex);
-    // gulp.watch(paths.styles.src,watchOptions, styles)
+    gulp.watch(paths.styles.src,watchOptions, styles)
     gulp.watch(paths.styles.src,watchOptions, gulp.series('rollup'));
     gulp.watch(paths.elmFiles.src,watchOptions, elmCompile);
     gulp.watch(paths.dist.src,watchOptions).on( 'change', browserSync.reload );
@@ -98,10 +98,12 @@ function watch () {
 
 gulp.task('default',taskListing);
 
+// main tasks
+exports.init  = gulp.series(copyIndex,elmCompile,gulp.series('rollup'))
+exports.watch = watch;
+exports.clean = clean;
 
+// sub-tasks
 exports.styles = styles;
 exports.elm = elmCompile;
-exports.watch = watch;
 exports.copyIndex = copyIndex;
-exports.clean = clean;
-exports.init  = gulp.series(copyIndex,elmCompile,gulp.series('rollup'))
