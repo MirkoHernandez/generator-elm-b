@@ -44,6 +44,10 @@ module.exports = class extends Generator {
 	    this.templatePath('rollup.config.js'),
 	    this.destinationPath('rollup.config.js')
 	);
+	this.fs.copy(
+	    this.templatePath('main-rollup.js'),
+	    this.destinationPath('main-rollup.js')
+	);
 
 	// Libraries
 	this.fs.copyTpl(
