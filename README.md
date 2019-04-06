@@ -1,36 +1,75 @@
 # generator-elm-b [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> A simple elm project + gulp and rollup.
+> A minimalist elm project; it includes a build system implemented with gulp and rollup.
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-elm-b using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
-
 ```bash
 npm install -g yo
-npm install -g generator-elm-b
+npm install -g  git:<url of this repository>
 ```
 
-Then generate your new project:
+Or clone this repository and install with npm link. 
 
 ```bash
-yo elm-b
+npm link 
 ```
 
-## Getting To Know Yeoman
+## Using this generator
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+Create a new project.
+
+```bash
+mkdir <project> && cd <project>
+yo elm-b .
+```
+
+Create an elm json file (not included in the generator in order to
+have the last available libraries).
+
+```bash
+npx elm init
+```
+
+Create the compiled files and start watching.
+
+```bash
+npx gulp init
+npx gulp watch
+```
+
+## Generator structure
+
+### Fixed part
+
+- src/index.html
+- src/Main.elm
+- styles/main.scss
+- main-rollup.js
+- gulpfile.js
+- rollup-config.js
+
+### Flexible part
+- package.json  - The name of the project is inserted here.
+
+### Libraries
+
+- elm : 0.19.0-bugfix6
+- gulp
+- gulp-elm
+- gulp-sass
+- rollup
+
+Required for gulp pipe operations: 
+- vinyl-buffer
+- vinyl-source-stream
+
+Required for rollup operations:
+- rollup-plugin-commonjs
+- rollup-plugin-json
+- rollup-plugin-node-resolve
+- rollup-plugin-postcss
+- rollup-stream
 
 ## License
 
 MIT © []()
-
-
-[npm-image]: https://badge.fury.io/js/generator-elm-b.svg
-[npm-url]: https://npmjs.org/package/generator-elm-b
-[travis-image]: https://travis-ci.org//generator-elm-b.svg?branch=master
-[travis-url]: https://travis-ci.org//generator-elm-b
-[daviddm-image]: https://david-dm.org//generator-elm-b.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org//generator-elm-b
