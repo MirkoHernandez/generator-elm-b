@@ -6,7 +6,7 @@ import json from 'rollup-plugin-json';
 import postcss from 'rollup-plugin-postcss';
 
 export default {
-    input: 'src/main-rollup.js',
+    input: 'main-rollup.js',
     // rollup: require('rollup'),// rollup-stream compatibility
     format: 'iife',              // rollup-stream compatibility
     name:'foo',                  // rollup-stream compatibility
