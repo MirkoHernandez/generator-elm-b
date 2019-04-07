@@ -1,4 +1,4 @@
-# generator-elm-b [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-elm-b 
 > A minimalist elm project; it includes a build system implemented with gulp and rollup.
 
 ## Installation
@@ -19,7 +19,7 @@ npm link
 Create a new project.
 
 ```bash
-mkdir <project> && cd <project>
+mkdir my-project && cd my-project
 yo elm-b .
 ```
 
@@ -64,7 +64,7 @@ Required for gulp pipe operations:
 - vinyl-source-stream
 
 Required for rollup operations:
-- rollup-plugin-commonjs
+- rollup-plugin-commonjs : 8.4.1 
 - rollup-plugin-json
 - rollup-plugin-node-resolve
 - rollup-plugin-postcss
