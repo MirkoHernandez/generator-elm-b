@@ -6,10 +6,6 @@ const yosay = require('yosay');
 module.exports = class extends Generator {
     prompting() {
 	// Have Yeoman greet the user.
-	this.log(
-	    yosay(`Welcome to the world-class ${chalk.red('generator-elm-b')} generator!`)
-	);
-
 	const prompts = [
 	    {
 		type: 'input',
@@ -35,30 +31,7 @@ module.exports = class extends Generator {
 	    this.templatePath('styles'),
 	    this.destinationPath('./styles')
 	);
-	// Gulp build system
-	this.fs.copy(
-	    this.templatePath('gulpfile.js'),
-	    this.destinationPath('gulpfile.js')
-	);
-	this.fs.copy(
-	    this.templatePath('rollup.config.js'),
-	    this.destinationPath('rollup.config.js')
-	);
-	this.fs.copy(
-	    this.templatePath('main-rollup.js'),
-	    this.destinationPath('main-rollup.js')
-	);
 
-	// Libraries
-	this.fs.copyTpl(
-	    this.templatePath('package.json'),
-	    this.destinationPath('package.json'),
-	    this.props
-	);
-	this.fs.copy(
-	    this.templatePath('gitignore'), 
-	    this.destinationPath('.gitignore')
-	);
     }
     
     install() {
